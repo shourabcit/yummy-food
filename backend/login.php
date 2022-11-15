@@ -1,3 +1,8 @@
+<?php
+
+session_start();
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,10 +46,26 @@
                                     </div>
                                     <form class="user" method="POST" action="../controller/login_user.php">
                                         <div class="form-group">
-                                            <input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email / Phone" name="email_phone">
+                                            <input type="text" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email / Phone" name="email_phone">
+                                            <?php
+                                            if (isset($_SESSION['email_error'])) {
+                                            ?>
+                                                <span style="color: red;"><?= $_SESSION['email_error'] ?></span>
+                                            <?php
+                                            }
+
+                                            ?>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password" name="password">
+                                            <?php
+                                            if (isset($_SESSION['psk_error'])) {
+                                            ?>
+                                                <span style="color: red;"><?= $_SESSION['psk_error'] ?></span>
+                                            <?php
+                                            }
+
+                                            ?>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -90,3 +111,9 @@
 </body>
 
 </html>
+
+<?php
+
+session_unset();
+
+?>

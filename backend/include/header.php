@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+
+if (!isset($_SESSION['auth'])) {
+    header("location: ./login.php");
+}
+if (isset($_SESSION['auth'])) {
+    $auth = $_SESSION['auth'];
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -302,8 +316,10 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
-                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    <?= ucwords($auth['first_name'])  ?>
+                                </span>
+                                <img class="img-profile rounded-circle" src="https://avatars.dicebear.com/api/initials/<?= $auth['first_name'] ?>.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
