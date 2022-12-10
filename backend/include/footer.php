@@ -55,11 +55,11 @@
 <script src="js/sb-admin-2.min.js"></script>
 
 <script>
-    let profileImgInput = document.querySelector('#profileImg')
-    let profileImagePlaceHolder = document.querySelector('#profileImagePlaceHolder')
-    profileImgInput.addEventListener('change', (e) => {
-        let objectUrl = window.URL.createObjectURL(e.target.files[0])
-        profileImagePlaceHolder.src = objectUrl
+    let inputImage = document.querySelector('.inputImage')
+    let imagePlaceHolder = document.querySelector('.bannerImg')
+    inputImage.addEventListener('change', (e) => {
+        let objectUrl = window.URL.createObjectURL(e.target.files[0]);
+        imagePlaceHolder.src = objectUrl;
     })
 </script>
 
